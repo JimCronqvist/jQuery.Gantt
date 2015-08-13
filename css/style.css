@@ -82,6 +82,8 @@
     border-bottom: 1px solid #DDD;
     border-left: 1px solid #ddd;
     background-color: #f6f6f6;
+    padding-right: 5px;
+    width: 100px;
 }
 
 .fn-gantt .leftPanel .fn-wide, .fn-gantt .leftPanel .fn-wide .fn-label {

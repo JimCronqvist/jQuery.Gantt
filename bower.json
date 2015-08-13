@@ -1,0 +1,8 @@
+{
+  "name": "jQuery.Gantt",
+  "description": "jQuery Gantt Plugin",
+  "dependencies": {
+    "jquery": ">=1.10.2"
+  },
+  "license": "MIT"
+}

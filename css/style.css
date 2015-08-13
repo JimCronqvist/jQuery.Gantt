@@ -1,3 +1,15 @@
+
+/* Bootstrap 3.x re-reset */
+.fn-gantt *,
+.fn-gantt *:after,
+.fn-gantt *:before {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+
+
 .gantt, .gantt2 {
     width: 100%;
     margin: 20px auto;
@@ -57,7 +69,7 @@
     display: inline-block;
     margin: 0 0 0 5px;
     color: #484A4D;
-    width: 110px;
+    width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -68,6 +80,7 @@
     height: 23px;
     margin: 0;
     border-bottom: 1px solid #DDD;
+    border-left: 1px solid #ddd;
     background-color: #f6f6f6;
 }
 

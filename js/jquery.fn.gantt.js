@@ -321,38 +321,32 @@
                 /* Left panel */
                 var ganttLeftPanel = $('<div class="leftPanel"/>')
                     .append($('<div class="row spacer"/>')
-                    .css("height", tools.getCellSize() * element.headerRows)
+                    .css("height", (tools.getCellSize() * element.headerRows)-1)
                     .css("width", "100%"));
 
                 var entries = [];
+                entries.push('<div>');
                 $.each(element.data, function (i, entry) {
                     if (i >= element.pageNum * settings.itemsPerPage &&
                         i < (element.pageNum * settings.itemsPerPage + settings.itemsPerPage)) {
                         var dataId = ('id' in entry) ? '" data-id="' + entry.id : '';
-                        entries.push(
-                            '<div class="row name row' + i +
-                            (entry.desc ? '' : (' fn-wide '+dataId)) +
-                            '" id="rowheader' + i +
-                            '" data-offset="' + i % settings.itemsPerPage * tools.getCellSize() + '">' +
-                            '<span class="fn-label' +
-                            (entry.cssClass ? ' ' + entry.cssClass : '') + '">' +
-                            (entry.name || '') +
-                            '</span>' +
-                            '</div>');
+                        entries.push('<div style="clear:both;">');
 
-                        if (entry.desc) {
-                            entries.push(
-                                '<div class="row desc row' + i +
-                                ' " id="RowdId_' + i + dataId + '">' +
-                                '<span class="fn-label' +
-                                (entry.cssClass ? ' ' + entry.cssClass : '') + '">' +
-                                entry.desc +
-                                '</span>' +
-                                '</div>');
+                        for(var col in entry.columns)
+                        {
+                            entries.push('<div id="rowheader' + i + '" data-offset="' + i % settings.itemsPerPage * tools.getCellSize() + '">');
+                            entries.push('</div>');
+
+                            entries.push('<div class="row row' + i + ' col_' + col +'" id="RowdId_' + i + +dataId + '">');
+                            entries.push('<span class="fn-label' + (entry.cssClass ? ' ' + entry.cssClass : '') + '">' + (entry.columns[col] || '') + '</span>');
+                            entries.push('</div>');
                         }
 
+                        entries.push('</div>');
                     }
                 });
+                entries.push('</div>');
+
                 return ganttLeftPanel.append(entries.join(""));
             },
 

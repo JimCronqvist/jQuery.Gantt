@@ -40,7 +40,7 @@
     overflow: hidden;
     border-right: 1px solid #DDD;
     position: relative;
-    z-index: 20;
+    z-index: 0;
 }
 
 .fn-gantt .row {
@@ -63,24 +63,12 @@
     overflow: hidden;
 }
 
-.fn-gantt .leftPanel .row0 {
-    border-top: 1px solid #DDD;
-}
-.fn-gantt .leftPanel .name, .fn-gantt .leftPanel .desc {
+.fn-gantt .leftPanel .row{
     float: left;
     height: 23px;
     margin: 0;
     border-bottom: 1px solid #DDD;
     background-color: #f6f6f6;
-}
-
-.fn-gantt .leftPanel .name {
-    width: 110px;
-    font-weight: bold;
-}
-
-.fn-gantt .leftPanel .desc {
-    width: 115px;
 }
 
 .fn-gantt .leftPanel .fn-wide, .fn-gantt .leftPanel .fn-wide .fn-label {
@@ -187,7 +175,7 @@
     height: 18px;
     margin: 0px 3px 3px 0px;
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     text-align: center;
         -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.25) inset;
         -moz-box-shadow: 0 0 1px rgba(0,0,0,0.25) inset;
@@ -240,7 +228,7 @@
     width: 100%;
 }
 .fn-gantt .navigate {
-    border-top: 1px solid #DDD;
+    /*border-top: 1px solid #DDD;*/
     padding: 10px 0 10px 225px;
 }
 
@@ -407,7 +395,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf000000', endColorstr='#bf000000',GradientType=0 );
     background: rgba(0,0,0,0.75);
     cursor: wait;
-    z-index: 30;
+    z-index: 3;
 }
 .fn-gantt-loader-spinner span {
     position: absolute;

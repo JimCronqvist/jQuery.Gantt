@@ -358,7 +358,7 @@
                 var wheel = 'onwheel' in element ?
                     'wheel' : document.onmousewheel !== undefined ?
                     'mousewheel' : 'DOMMouseScroll';
-                $(element).on(wheel, function (e) { core.wheelScroll(element, e); });
+                $(document).on(wheel, '.rightPanel', function (e) { core.wheelScroll(element, e); });
 
                 // Handle click events and dispatch to registered `onAddClick` function
                 dataPanel.click(function (e) {

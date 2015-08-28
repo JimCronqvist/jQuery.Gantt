@@ -294,7 +294,11 @@
 
                 // Scroll the grid to today's date
                 if (settings.scrollToToday) {
-                    core.navigateTo(element, 'now');
+                    if(settings.scrollToToday === true) {
+                        core.navigateTo(element, 'now');
+                    } else {
+                        core.navigateTo(element, 'now', settings.scrollToToday);
+                    }
                     core.scrollPanel(element, 0);
                 // or, scroll the grid to the left most date in the panel
                 } else {
@@ -1153,7 +1157,7 @@
                 });
             },
             // **Navigation**
-            navigateTo: function (element, val) {
+            navigateTo: function (element, val, custom_val) {
                 var $rightPanel = $(element).find(".fn-gantt .rightPanel");
                 var $dataPanel = $rightPanel.find(".dataPanel");
                 var rightPanelWidth = $rightPanel.width();
@@ -1179,6 +1183,16 @@
                     maxLeft = (dataPanelWidth - rightPanelWidth) * -1;
                     curMarg = $dataPanel.css("margin-left").replace("px", "");
                     val = $dataPanel.find(".today").offset().left - $dataPanel.offset().left;
+                    if(typeof custom_val != 'undefined') {
+                        var today = $dataPanel.find(".today");
+                        var day = today;
+                        if(custom_val < 0) {
+                            for(var i = 0; i > custom_val; i--) {
+                                day = day.prev();
+                            }
+                        }
+                        val = day.offset().left - $dataPanel.offset().left;
+                    }
                     val *= -1;
                     if (val > 0) {
                         val = 0;
